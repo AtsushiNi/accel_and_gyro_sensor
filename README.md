@@ -10,13 +10,13 @@ yarn serve
 ```
 
 ## サーバー
-websocketサーバー: ws
-シリアルポート: serialport, @serialport/parser-readline
+websocketサーバー: ws  
+シリアルポート: serialport, @serialport/parser-readline  
 
 ## クライアント
-ポート: 8000
-webサーバー: http
-3D描画: THREE.js
+ポート: 8000  
+webサーバー: http  
+3D描画: THREE.js  
 
 ## jsパッケージマネージャ
 yarn

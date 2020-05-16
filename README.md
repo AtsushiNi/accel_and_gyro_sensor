@@ -1,0 +1,2 @@
+# accel_and_gyro_sensor
+Arduino+MPU6050のデータをwebsocketでブラウザに送りTHREE.jsで表示

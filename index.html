@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>MPU6050</title>
+  </head>
+  <body>
+    <h1>Hello World</h1>
+
+    <script>
+      const socket = new WebSocket("ws://localhost:5001")
+
+      socket.addEventListener("open", e => {
+        console.log("open")
+      })
+
+      socket.addEventListener("message", e => {
+        const data_array = e
+          .data
+          .split(';')
+          .filter(data => data)
+          .map(data => {
+            return data
+              .split(',')
+              .map(axis => {
+                const obj = {}
+                obj[axis.split(':')[0]] = axis.split(':')[1]
+                return obj
+              })
+          })
+        console.log(data_array)
+      })
+
+      socket.addEventListener("close", e => {
+        console.log("closed")
+      })
+    </script>
+  </body>
+</html>
+

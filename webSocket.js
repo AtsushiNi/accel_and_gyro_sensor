@@ -6,7 +6,11 @@ const Readline = require('@serialport/parser-readline')
 const port = new SerialPort(
   '/dev/cu.usbmodem141201',
   { baudRate: 9600 },
-  err => console.log(err)
+  err => {
+    if (err) {
+      console.log(err)
+    }
+  }
 )
 const parser = new Readline()
 port.pipe(parser)
@@ -18,6 +22,8 @@ parser.on('data', data => {
 })
 
 server.on("connection", ws => {
+  console.log('WebSocket server listen on 5001')
+
   setInterval(() => {
     console.log(dataBuffer)
     ws.send(dataBuffer)

@@ -10,6 +10,7 @@ yarn serve
 ```
 
 ## サーバー
+ポート5001
 websocketサーバー: ws  
 シリアルポート: serialport, @serialport/parser-readline  
 

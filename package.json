@@ -1,0 +1,14 @@
+{
+  "name": "accel_and_gyro_sensor",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/AtsushiNi/accel_and_gyro_sensor.git",
+  "author": "AtsushiNi <atsushi9731@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "serve": "node server.js"
+  },
+  "dependencies": {
+    "http": "^0.0.1-security"
+  }
+}

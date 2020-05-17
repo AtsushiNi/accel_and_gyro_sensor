@@ -26,11 +26,9 @@ console.log('WebSocket server listen on 5001')
 server.on("connection", ws => {
   console.log('webSocket connected')
 
-  setInterval(() => {
-    console.log(dataBuffer)
-    ws.send(dataBuffer)
-    dataBuffer = ''
-  }, 1000)
+  parser.on('data', data => {
+    ws.send(data)
+  })
 })
 
 server.on("close", () => {

@@ -21,8 +21,10 @@ parser.on('data', data => {
   dataBuffer = dataBuffer + ";" + data
 })
 
+console.log('WebSocket server listen on 5001')
+
 server.on("connection", ws => {
-  console.log('WebSocket server listen on 5001')
+  console.log('webSocket connected')
 
   setInterval(() => {
     console.log(dataBuffer)

@@ -6,12 +6,14 @@
   "author": "AtsushiNi <atsushi9731@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "serve": "node server.js & node webSocket.js"
+    "serve": "node server.js",
+    "start": "node webSocket.js"
   },
   "dependencies": {
     "@serialport/parser-readline": "^9.0.0",
     "http": "^0.0.1-security",
     "serialport": "^9.0.0",
+    "three": "^0.116.1",
     "ws": "^7.3.0"
   }
 }

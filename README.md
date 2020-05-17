@@ -8,6 +8,7 @@ cd accel_and_gyro_sensor
 yarn
 yarn serve
 ```
+ブラウザでlocalhost:8000にアクセス
 
 ## サーバー
 ポート5001

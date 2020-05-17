@@ -71,7 +71,7 @@ function initThree() {
 
 function getEuler(accelVector) {
   const x = Math.atan2(accelVector[1], accelVector[2])
-  const y = Math.atan2(-accelVector[0], Math.sqrt(accelVector[1] * accelVector[1] + accelVector[2] * accelVector[2]))
-  const z = 0 // ヨー角は分からないので0としておく
+  const y = 0 // ヨー角は分からないので0としておく
+  const z = -Math.atan2(-accelVector[0], Math.sqrt(accelVector[1] * accelVector[1] + accelVector[2] * accelVector[2]))
   return [x, y, z]
 }

@@ -12,6 +12,7 @@
 
     <script>
       const socket = new WebSocket("ws://localhost:5001")
+      var g = [0, 0, 1]
 
       socket.addEventListener("open", e => {
         console.log("open")
@@ -23,15 +24,16 @@
           .split(';')
           .filter(data => data)
           .map(data => {
-            return data
+            const data_obj = {}
+            data
               .split(',')
-              .map(axis => {
-                const obj = {}
-                obj[axis.split(':')[0]] = axis.split(':')[1]
-                return obj
+              .forEach(axis => {
+                data_obj[axis.split(':')[0]] = axis.split(':')[1]
               })
+            return data_obj
           })
-        console.log(data_array)
+        g = Object.values(data_array[0]).map(d => d*4/65536)
+        console.log(g)
       })
 
       socket.addEventListener("close", e => {
@@ -69,11 +71,22 @@
 
         // 毎フレーム呼び出されるイベント
         function tick() {
-          box.rotation.y += 0.01
+          const euler = getEuler(g)
+
+          box.rotation.x = euler[0]
+          box.rotation.y = euler[1]
+          box.rotation.z = euler[2]
           renderer.render(scene, camera)
 
           requestAnimationFrame(tick)
         }
+      }
+
+      function getEuler(accelVector) {
+        const x = Math.atan2(accelVector[1], accelVector[2])
+        const y = Math.atan2(-accelVector[0], Math.sqrt(accelVector[1] * accelVector[1] + accelVector[2] * accelVector[2]))
+        const z = 0 // ヨー角は分からないので0としておく
+        return [x, y, z]
       }
     </script>
   </body>

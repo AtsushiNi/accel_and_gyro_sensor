@@ -13,7 +13,7 @@
     "@serialport/parser-readline": "^9.0.0",
     "http": "^0.0.1-security",
     "serialport": "^9.0.0",
-    "three": "^0.116.1",
+    "three": "^0.125.0",
     "ws": "^7.3.0"
   }
 }
